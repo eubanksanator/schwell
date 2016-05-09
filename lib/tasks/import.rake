@@ -1,7 +1,7 @@
-require 'csv'
+# require 'csv'
 
-namespace :import do
+# namespace :import do
 
-    desc "Import contacts from csv"
-    task contacts: :environment do
-        filename =
+#     desc "Import contacts from csv"
+#     task contacts: :environment do
+#         filename =

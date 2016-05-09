@@ -62,8 +62,8 @@ class ContactsController < ApplicationController
   end
 
   def import
-    Contacts.import(params[:file])
-    redirect_to root_path, notice: "Contacts Imported Successfully"
+    Contact.import(params[:file])
+    redirect_to root_url, notice: "Contacts Imported Successfully"
   end
 
   private
@@ -76,4 +76,4 @@ class ContactsController < ApplicationController
     def contact_params
       params.require(:contact).permit(:name, :phone_num)
     end
-end
+  end

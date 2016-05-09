@@ -1,9 +1,9 @@
 class Contact < ActiveRecord::Base
     require 'csv'
 
-    def import(file)
-        file_path = file.path
-        CSV.foreach(file_path, headers: true) do |row|
+    def self.import(imported_file)
+        input_path = imported_file.path
+        CSV.foreach(input_path, headers: true) do |row|
             name = row[0]
             phone_num = row[1]
 
