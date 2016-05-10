@@ -7,7 +7,9 @@ class Contact < ActiveRecord::Base
             name = row[0]
             phone_num = row[1]
 
-            Contact.create(name: name, phone_num: phone_num)
+            if name && phone_num
+                Contact.create(name: name, phone_num: phone_num)
+            end
         end
     end
 end
