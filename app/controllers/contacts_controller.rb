@@ -62,7 +62,7 @@ class ContactsController < ApplicationController
   end
 
   def import
-    Contact.import(params[:file])
+    @contact = Contact.import(params[:file])
     redirect_to root_url, notice: "Contacts Imported Successfully"
   end
 

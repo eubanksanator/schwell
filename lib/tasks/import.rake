@@ -7,9 +7,11 @@ namespace :import do
         filename = File.join(Rails.root, 'gcontacts.csv')
         CSV.foreach(filename, headers: true) do |row|
 
-            puts row[0]
-            puts row[1]
-            # puts filename.count
+            number = row[1].scan(/\d+/).join
+            number[0] == "1" ? number[0] = '' : number
+            number unless number.length != 10
+
+
         end
     end
 end
