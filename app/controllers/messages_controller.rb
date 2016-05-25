@@ -1,8 +1,8 @@
 class MessagesController < ApplicationController
     require 'twilio-ruby'
+    # before_filter :boot_twilio :except => [:message_form]
 
-    def create_message
-        # Brings up form page to fill out a message
+    def message_form
     end
 
     def send_message
@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
         boot_twilio
 
         sms = @client.messages.create(
-            from: '18472326161',
+            from: Rails.application.secrets.twilio_number,
             to: '8475088751',
             body: message_body
             )
@@ -37,6 +37,18 @@ class MessagesController < ApplicationController
 
         redirect_to root_path, :notice => "We sent the text successfully"
 
+    end
+
+    def reply
+        message_body = params["Body"] # Responders message
+        from_number  = params["From"] # Responders number
+        boot_twilio
+
+        sms = @client.messages.create(
+            from: Rails.application.secrets.twilio_number,
+            to: from_number,
+            body: "You responded with #{message_body}"
+            )
     end
 
     private
