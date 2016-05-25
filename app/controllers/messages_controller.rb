@@ -1,11 +1,11 @@
-class SmsDeliveriesController < ApplicationController
+class MessagesController < ApplicationController
     require 'twilio-ruby'
 
     def create_message
-
+        # Brings up form page to fill out a message
     end
 
-    def send_text
+    def send_message
         message_body = params["body"]
         boot_twilio
 

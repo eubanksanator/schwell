@@ -7,9 +7,9 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'sms_deliveries/create_message'
+  get 'messages/create_message'
 
-  post '/send_my_text' => 'sms_deliveries#send_text'
+  post '/send_my_text' => 'messages#send_text'
 
   root 'contacts#index'
 
