@@ -1,0 +1,7 @@
+<h1>Create your message here</h1>
+<small>This will send to your whole contact list</small>
+
+<%= form_tag('/send_my_text') do %>
+    <div><%= text_area_tag 'body' %></div>
+    <div><%= submit_tag 'Send Message' %></div>
+<% end %>
