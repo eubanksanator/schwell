@@ -6,11 +6,9 @@ class SmsDeliveriesController < ApplicationController
     end
 
     def send_text
-        account_sid = Rails.application.secrets.twilio_sid
-        auth_token = Rails.application.secrets.twilio_token
-        @client = Twilio::Rest::Client.new account_sid, auth_token
-
         message_body = params["body"]
+        boot_twilio
+
         sms = @client.messages.create(
             from: '18472326161',
             to: '8475088751',
@@ -39,5 +37,13 @@ class SmsDeliveriesController < ApplicationController
 
         redirect_to root_path, :notice => "We sent the text successfully"
 
+    end
+
+    private
+
+    def boot_twilio
+        account_sid = Rails.application.secrets.twilio_sid
+        auth_token = Rails.application.secrets.twilio_token
+        @client = Twilio::REST::Client.new account_sid, auth_token
     end
 end
