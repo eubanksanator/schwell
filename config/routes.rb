@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   post '/send_my_text' => 'messages#send_message'
   post '/reply' => 'messages#reply' # Create Endpoint in Twilio Dashboard "www.schwell.com/messages/reply"
 
-  root 'contacts#index'
+  root 'static_pages#home'
 
 end
