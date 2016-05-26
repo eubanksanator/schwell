@@ -1,8 +1,9 @@
 class MessagesController < ApplicationController
+    skip_before_filter :verify_authenticity_token
     require 'twilio-ruby'
-    # before_filter :boot_twilio :except => [:message_form]
 
-    def message_form
+
+    def msg_form
     end
 
     def send_message
@@ -49,6 +50,7 @@ class MessagesController < ApplicationController
             to: from_number,
             body: "You responded with #{message_body}"
             )
+        redirect_to(:back)
     end
 
     private
