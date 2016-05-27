@@ -22,6 +22,7 @@
         <div class="nametag">
             <p><small>Name:</small> <%= contact.name %></p>
             <p><small>Number:</small> <%= contact.phone_num %></p>
+            <%= link_to "Delete", contact, method: :delete, data: { confirm: "Are you sure?" } %>
         </div>
         <br>
     </div>
