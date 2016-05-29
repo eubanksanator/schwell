@@ -3,10 +3,11 @@ class MessagesController < ApplicationController
     require 'twilio-ruby'
 
 
-    def msg_form
+    def text_form
+
     end
 
-    def send_message
+    def send_my_text
         message_body = params["body"]
         boot_twilio
 
@@ -21,7 +22,7 @@ class MessagesController < ApplicationController
         @successful_msg = 0
         @contacts.each do |contact|
             sms = @client.messages.create(
-                from: Rails.application.secrets.twilio_number
+                from: Rails.application.secrets.twilio_number,
                 to: contact.phone_num,
                 body: message_body
                 )
@@ -33,7 +34,7 @@ class MessagesController < ApplicationController
     end
 
     # def reply
-    #     message_body = params["Body"] # Responders message
+    #     message_body = params["Body"] # Responders messages
     #     from_number  = params["From"] # Responders number
     #     boot_twilio
 

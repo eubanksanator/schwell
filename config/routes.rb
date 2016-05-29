@@ -7,10 +7,11 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'messages/msg_form'
+  get '/create_msg' => 'messages#text_form'
 
-  post '/send_my_text' => 'messages#send_message'
-  post '/reply' => 'messages#reply' # Create Endpoint in Twilio Dashboard "www.schwell.com/messages/reply"
+  post '/send_my_text' => 'messages#send_my_text'
+  # post '/reply' => 'messages#reply'
+  # Create Endpoint in Twilio Dashboard "www.schwell.com/messages/reply"
 
   root 'static_pages#home'
 
