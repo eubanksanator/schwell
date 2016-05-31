@@ -29,7 +29,7 @@ class MessagesController < ApplicationController
             @successful_msg += 1
         end
 
-        redirect_to root_path, :notice => "We sent #{@successful_mg} messages out of #{@contacts} contacts successfully"
+        redirect_to root_path, :notice => "We sent #{@successful_msg} messages out of #{@contacts.count} contacts successfully"
 
     end
 
