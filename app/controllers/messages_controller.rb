@@ -27,6 +27,7 @@ class MessagesController < ApplicationController
                 body: message_body
                 )
             @successful_msg += 1
+            sleep(5)
         end
 
         redirect_to root_path, :notice => "We sent #{@successful_msg} messages out of #{@contacts.count} contacts successfully"
